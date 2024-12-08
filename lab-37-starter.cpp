@@ -1,16 +1,13 @@
 #include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
 
 int sum_ascii(string chars);
 
 int main() {
-    char a = 'A';
-    cout << a << endl;
-    cout << (int) a << endl;
-    int b = 66;
-    cout << b << endl;
-    cout << (char) b << endl;
-    
+    ifstream file("lab-37-data.txt");
+    string line;
 
     return 0;
 }
