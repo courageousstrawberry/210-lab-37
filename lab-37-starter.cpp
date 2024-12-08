@@ -16,6 +16,7 @@ int main() {
     if (file.is_open()) {
         while (getline(file, line)) {
             int index = gen_hash_index(line);
+            hash_table[index].push_back(line);
         }
         file.close();
     }
