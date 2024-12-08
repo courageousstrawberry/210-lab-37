@@ -1,19 +1,21 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <map>
+#include <list>
 using namespace std;
 
-int sum_ascii(string chars);
+int gen_hash_index(string chars);
 
 int main() {
-    int total;
+    map <int, list<string>> hash_table;
     // Read from data file.
     ifstream file("lab-37-data.txt");
     string line;
 
     if (file.is_open()) {
         while (getline(file, line)) {
-            total += sum_ascii(line);
+            int index = gen_hash_index(line);
         }
         file.close();
     }
@@ -21,11 +23,10 @@ int main() {
         cout << "Unable to open file" << endl;
     }
 
-    cout << total;
     return 0;
 }
 
-int sum_ascii(string chars) {
+int gen_hash_index(string chars) {
     int sum = 0;
     for (char c: chars) {
         sum += ((char) c);
