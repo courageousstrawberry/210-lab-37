@@ -6,8 +6,19 @@ using namespace std;
 int sum_ascii(string chars);
 
 int main() {
+    // Read from data file.
     ifstream file("lab-37-data.txt");
     string line;
+
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            continue;
+        }
+        file.close();
+    }
+    else {
+        cout << "Unable to open file" << endl;
+    }
 
     return 0;
 }
