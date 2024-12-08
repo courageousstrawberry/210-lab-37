@@ -15,6 +15,7 @@ int main() {
 
     if (file.is_open()) {
         while (getline(file, line)) {
+            // Store hash index and string into file.
             int index = gen_hash_index(line);
             hash_table[index].push_back(line);
         }
@@ -24,13 +25,27 @@ int main() {
         cout << "Unable to open file" << endl;
     }
 
+    // Output first 100 map entries.
+    int count = 0;
+    for (const auto& pair : hash_table) {
+        if (count >= 100) {
+            break;
+        }
+        cout << "Hash Index: " << pair.first << ", Value: ";
+        for (const auto& code : pair.second) {
+            cout << code << " ";
+        }
+        cout << endl;
+        count++;
+    }
+
     return 0;
 }
 
 int gen_hash_index(string chars) {
     int sum = 0;
     for (char c: chars) {
-        sum += ((char) c);
+        sum += (int) c;
     }
     return sum;
 }
