@@ -27,15 +27,24 @@ int main() {
 
     // Output first 100 map entries.
     int count = 0;
+    int count2 = 0;
+    // Loop through the hash indexes.
     for (const auto& pair : hash_table) {
-        if (count >= 100) {
+        cout << count << endl;
+        if (count == 100) {
             break;
         }
         cout << "Hash Index: " << pair.first << ", Value: ";
+        // Loop through the list of string codes.
         for (const auto& code : pair.second) {
-            cout << code << " ";
+            while(count2 != 100) {
+                cout << code << " ";
+                count2++;
+            }
         }
+        count2 = 0;
         cout << endl;
+
         count++;
     }
 
