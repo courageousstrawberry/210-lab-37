@@ -17,6 +17,9 @@ int main() {
 
 int sum_ascii(string chars) {
     int sum = 0;
+    for (char c: chars) {
+        sum += ((char) c);
+    }
     return sum;
 }
 
