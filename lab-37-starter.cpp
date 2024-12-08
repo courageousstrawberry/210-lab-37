@@ -6,13 +6,14 @@ using namespace std;
 int sum_ascii(string chars);
 
 int main() {
+    int total;
     // Read from data file.
     ifstream file("lab-37-data.txt");
     string line;
 
     if (file.is_open()) {
         while (getline(file, line)) {
-            continue;
+            total += sum_ascii(line);
         }
         file.close();
     }
@@ -20,6 +21,7 @@ int main() {
         cout << "Unable to open file" << endl;
     }
 
+    cout << total;
     return 0;
 }
 
