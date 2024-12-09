@@ -14,6 +14,7 @@ int main() {
     // Read from data file.
     ifstream file("lab-37-data.txt");
     string line;
+    int choice;
 
     if (file.is_open()) {
         while (getline(file, line)) {
@@ -27,27 +28,37 @@ int main() {
         cout << "Unable to open file" << endl;
     }
 
-    // Output first 100 map entries.
-    int count = 0;
-    int count2 = 0;
-    // Loop through the hash indexes.
-    for (const auto& pair : hash_table) {
-        cout << count << endl;
-        if (count == 100) {
-            break;
-        }
-        cout << "Hash Index: " << pair.first << ", Value: ";
-        // Loop through the list of string codes.
-        for (const auto& code : pair.second) {
-            while(count2 != 100) {
-                cout << code << " ";
-                count2++;
+    menu();
+    cout << "Your choice: ";
+    cin >> choice;
+
+    while (choice != 6) {
+        switch (choice) {
+            case 1: {
+                // Output first 100 map entries.
+                int count = 0;
+                int count2 = 0;
+                // Loop through the hash indexes.
+                for (const auto& pair : hash_table) {
+                    cout << count << endl;
+                    if (count == 100) {
+                        break;
+                    }
+                    cout << "Hash Index: " << pair.first << ", Value: ";
+                    // Loop through the list of string codes.
+                    for (const auto& code : pair.second) {
+                        while(count2 != 100) {
+                            cout << code << " ";
+                            count2++;
+                        }
+                    }
+                    count2 = 0;
+                    cout << endl;
+
+                    count++;
+                }
             }
         }
-        count2 = 0;
-        cout << endl;
-
-        count++;
     }
 
     return 0;
