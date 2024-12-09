@@ -84,6 +84,22 @@ int main() {
                 }
                 break;
             }
+            case 3: {
+                // Add a key.
+                string key;
+                cout << "Enter a key to add: ";
+                cin >> key;
+                int hash_index = gen_hash_index(key);
+                hash_table[hash_index].push_back(key);
+                cout << "Key added!" << endl;
+            }
+            case 4: {
+                // Remove a key;
+                string key;
+                cout << "Enter a key to delete: ";
+                cin >> key;
+                int hash_index = ge
+            }
             default:
                 cout << "Invalid choice, try again." << endl;
                 break;
