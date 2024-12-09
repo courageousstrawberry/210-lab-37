@@ -3,6 +3,7 @@
 #include <string>
 #include <map>
 #include <list>
+#include <limits>
 using namespace std;
 
 void menu();
@@ -30,7 +31,11 @@ int main() {
 
     menu();
     cout << "Your choice: ";
-    cin >> choice;
+    while (!(cin >> choice) || choice < 1 || choice > 6) {
+        cout << "Invalid input. Please enter a number between 1 and 6: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
 
     while (choice != 6) {
         switch (choice) {
@@ -127,9 +132,14 @@ int main() {
                 break;
             
         }
+
         menu();
         cout << "Your choice: ";
-        cin >> choice;
+        while (!(cin >> choice) || choice < 1 || choice > 6) {
+            cout << "Invalid input. Please enter a number between 1 and 6: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
     }
 
     return 0;
@@ -149,7 +159,6 @@ void menu() {
     cout << "\t[2] Search for a key." << endl;
     cout << "\t[3] Add a key." << endl;
     cout << "\t[4] Remove a key." << endl;
-    cout << "\t[5] Modify a key." << endl;
     cout << "\t[6] Exit." << endl;
 }
 
