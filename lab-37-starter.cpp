@@ -5,6 +5,8 @@
 #include <list>
 using namespace std;
 
+void manu();
+
 int gen_hash_index(string chars);
 
 int main() {
@@ -57,6 +59,16 @@ int gen_hash_index(string chars) {
         sum += (int) c;
     }
     return sum;
+}
+
+void menu() {
+    cout << "Select an option: " << endl;
+    cout << "\t[1] Display first 100 entries." << endl;
+    cout << "\t[2] Search for a key." << endl;
+    cout << "\t[3] Add a key." << endl;
+    cout << "\t[4] Remove a key." << endl;
+    cout << "\t[5] Modify a key." << endl;
+    cout << "\t[6] Exit." << endl;
 }
 
 /* 
