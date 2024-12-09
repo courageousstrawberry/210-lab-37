@@ -57,6 +57,21 @@ int main() {
 
                     count++;
                 }
+                break;
+            }
+            case 2: {
+                // Search for a key.
+                int key = 0;
+                cout << "Enter a key to search for: ";
+                cin >> key;
+                auto it = hash_table.find(key);
+                if (it != hash_table.end()) {
+                    cout << "Key found!" << endl;
+                }
+                else {
+                    cout << "Key not found." << endl;
+                }
+                break;
             }
         }
     }
