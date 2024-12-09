@@ -98,7 +98,29 @@ int main() {
                 string key;
                 cout << "Enter a key to delete: ";
                 cin >> key;
-                int hash_index = ge
+                int hash_index = gen_hash_index(key);
+                auto it = hash_table.find(hash_index);
+                if (it != hash_table.end()) {
+                    auto& list = it->second;
+                    bool removed = false;
+                    for (auto list_it == key) {
+                        list.erase(list_it);
+                        removed = true;
+                        cout << "Key removed!" << endl;
+                        break;
+                    }
+                    if (!removed) {
+                        cout << "Key not found." << endl;
+                    }
+                    // Check if list is empty after key removal.
+                    if (list.empty()) {
+                        hash_table.erase(it);
+                    }
+                }
+                else {
+                    cout << "Hash index not found." << endl;
+                }
+                break;
             }
             default:
                 cout << "Invalid choice, try again." << endl;
