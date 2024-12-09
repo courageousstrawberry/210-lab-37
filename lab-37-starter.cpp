@@ -103,7 +103,7 @@ int main() {
                 if (it != hash_table.end()) {
                     auto& list = it->second;
                     bool removed = false;
-                    for (auto list_it == key) {
+                    for (auto list_it = list.begin(); list_it != list.end(); ++list_it) {
                         list.erase(list_it);
                         removed = true;
                         cout << "Key removed!" << endl;
