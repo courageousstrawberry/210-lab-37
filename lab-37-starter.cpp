@@ -5,7 +5,7 @@
 #include <list>
 using namespace std;
 
-void manu();
+void menu();
 
 int gen_hash_index(string chars);
 
@@ -61,19 +61,37 @@ int main() {
             }
             case 2: {
                 // Search for a key.
-                int key = 0;
+                string key = " ";
                 cout << "Enter a key to search for: ";
                 cin >> key;
-                auto it = hash_table.find(key);
-                if (it != hash_table.end()) {
-                    cout << "Key found!" << endl;
+                bool found = false;
+                // Loop through map container.
+                for (const auto&pair : hash_table){
+                    // Loop through hash_table keys in list container.
+                    for (const auto& code : pair.second) {
+                        if (code == key) {
+                            cout << "Key found!" << endl;
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (found) {
+                        break;
+                    }
                 }
-                else {
+                if (!found) {
                     cout << "Key not found." << endl;
                 }
                 break;
             }
+            default:
+                cout << "Invalid choice, try again." << endl;
+                break;
+            
         }
+        menu();
+        cout << "Your choice: ";
+        cin >> choice;
     }
 
     return 0;
